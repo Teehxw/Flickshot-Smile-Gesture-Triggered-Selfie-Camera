@@ -14,12 +14,12 @@ cooldown_started = False
 cooldown_start_time = None
 cooldown = 5
 
-# Selfie folder
 
 if not stream.isOpened():
     print("No Stream found")
     exit()
 
+# -***************************** MAIN LOOP *************************************
 while True:
     smile_detected = False
     result, frame = stream.read()
@@ -40,10 +40,6 @@ while True:
             cv2.imshow("Webcam", frame)
             key = cv2.waitKey(1)
 
-            if key == ord('q'):
-                break
-
-            continue 
     else:
         cooldown_started = False
         cooldown_start_time = None
@@ -108,9 +104,11 @@ while True:
     # Taking selfies
     cv2.imshow("Webcam", frame)
     key = cv2.waitKey(1)
+
     if key == ord('s'):
         cv2.imwrite('selfies/image.jpg', clean_frame)
         print("screenshot saved")
+        
     elif key == ord('q'):
         print("Stream closed")
         break

@@ -40,6 +40,11 @@ while True:
             cv2.imshow("Webcam", frame)
             key = cv2.waitKey(1)
 
+            if key == ord('q'):
+                break
+
+            continue
+
     else:
         cooldown_started = False
         cooldown_start_time = None
@@ -108,7 +113,7 @@ while True:
     if key == ord('s'):
         cv2.imwrite('selfies/image.jpg', clean_frame)
         print("screenshot saved")
-        
+         
     elif key == ord('q'):
         print("Stream closed")
         break

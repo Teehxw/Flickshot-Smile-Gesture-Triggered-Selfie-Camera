@@ -85,7 +85,7 @@ while True:
             (0, 0, 255),
             6
         )
-
+        
         if elapsed_time >= countdown:
             selfie_f = f"selfies/selfie_{int(time.time())}.jpg"
             cv2.imwrite(selfie_f, clean_frame)
